@@ -180,10 +180,10 @@ $$('.service').forEach(card => card.addEventListener('mouseenter', () => {
 const canvas = $('#dropsCanvas'), ctx2d = canvas.getContext('2d');
 const drops = [];
 let dpr = 1, lastX = null, lastY = null, travel = 0, dropsRaf = 0, lastFrame = 0;
-function sizeCanvas() { dpr = Math.min(window.devicePixelRatio || 1, 2); canvas.width = innerWidth * dpr; canvas.height = innerHeight * dpr; }
+function sizeCanvas() { dpr = finePointer ? Math.min(window.devicePixelRatio || 1, 2) : 1; canvas.width = innerWidth * dpr; canvas.height = innerHeight * dpr; }
 sizeCanvas();
 addEventListener('resize', sizeCanvas);
-const palette = () => document.body.classList.contains('theme-cool')
+const palette = () => $('#topbar').classList.contains('tc')
   ? ['#2F55E6', '#1A7BFF', '#1FC8F2', '#2F3FD9'] : ['#FF1A0A', '#FF3D00', '#FF5A00', '#FFB000'];
 function spawn(x, y, n, speed) {
   const cols = palette();
@@ -283,77 +283,119 @@ const sw = $('#troca'), swCursor = $('.switch-cursor', sw);
 let swSide = 0;
 const sections = $$('main section[id]'), navLinks = $$('.nav a[href^="#"]:not(.btn)');
 const stepsEl = $('#steps'), stepsFill = $('#stepsFill'), stepItems = $$('.step');
-const wppFloat = $('#wppFloat'), contact = $('#contato');
-let prevScroll = 0, ticking = false;
+const wppFloat = $('#wppFloat'), contact = $('#contato'), nav = $('#nav');
+const tickButtons = () => $$('button', spTicks);
+
+// Medidas da página guardadas em cache: a rolagem não mede nada a cada quadro (isso travava o celular).
+const M = {};
+function measure() {
+  const y = scrollY, top = el => el.getBoundingClientRect().top + y;
+  M.vh = innerHeight;
+  M.max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+  M.sections = sections.map(s => ({ id: s.id, top: top(s) }));
+  M.swTop = top(sw); M.swRange = Math.max(1, sw.offsetHeight - innerHeight);
+  M.stepsTop = top(stepsEl); M.stepsH = stepsEl.offsetHeight;
+  M.contactTop = top(contact); M.contactH = contact.offsetHeight;
+  M.ticks = tickButtons().map(b => ({ b, at: +b.dataset.at }));
+}
+
+let prevScroll = 0, ticking = false, lastSection = '', lastPct = -1, heroDone = false, lastCool = null, themeTimer = 0;
 function onScroll() {
   ticking = false;
-  const y = scrollY, h = document.documentElement.scrollHeight - innerHeight;
-  const sp = h > 0 ? clamp(y / h) : 0;
+  const y = scrollY, vh = M.vh;
+
+  // indicador lateral
+  const sp = clamp(y / M.max);
   side.style.setProperty('--sp', sp.toFixed(4));
-  spPct.textContent = Math.round(sp * 100) + '%';
-  $$('button', spTicks).forEach(b => b.classList.toggle('passed', sp >= +b.dataset.at - 0.002));
+  const pct = Math.round(sp * 100);
+  if (pct !== lastPct) { spPct.textContent = pct + '%'; lastPct = pct; M.ticks.forEach(t => t.b.classList.toggle('passed', sp >= t.at - 0.002)); }
   side.classList.add('active');
   clearTimeout(activeTimer);
   activeTimer = setTimeout(() => side.classList.remove('active'), 900);
 
-  // progresso dentro da transição (0 = Estúdio, 1 = Soluções)
-  const range = Math.max(1, sw.offsetHeight - innerHeight);
-  const raw = clamp((y - sw.offsetTop) / range);
-  const p = raw < .5 ? 2 * raw * raw : 1 - Math.pow(-2 * raw + 2, 2) / 2;
-  sw.style.setProperty('--p', p.toFixed(4));
-  sw.style.setProperty('--bump', Math.sin(Math.PI * p).toFixed(4));
-  const swNow = p >= .5 ? 1 : 0;
-  if (swNow !== swSide && raw > 0 && raw < 1) {
-    // respingo de gotas quando a cor vira
-    const r = swCursor.getBoundingClientRect();
-    if (!reduceMotion && typeof spawn === 'function') spawn(r.left + r.width * .1, r.top + r.height * .15, 22, 300);
+  // transição Estúdio → Soluções (0 = Estúdio, 1 = Soluções); só trabalha quando está na tela
+  const raw = clamp((y - M.swTop) / M.swRange);
+  if (y > M.swTop - vh && y < M.swTop + M.swRange + vh) {
+    const p = raw < .5 ? 2 * raw * raw : 1 - Math.pow(-2 * raw + 2, 2) / 2;
+    sw.style.setProperty('--p', p.toFixed(3));
+    sw.style.setProperty('--bump', Math.sin(Math.PI * p).toFixed(3));
+    const swNow = p >= .5 ? 1 : 0;
+    if (swNow !== swSide && raw > 0 && raw < 1 && !reduceMotion) {
+      // respingo de gotas quando a cor vira
+      const r = swCursor.getBoundingClientRect();
+      spawn(r.left + r.width * .1, r.top + r.height * .15, finePointer ? 22 : 12, 300);
+    }
+    swSide = swNow;
   }
-  swSide = swNow;
+  // cor: menu e indicador trocam na hora (são leves); o resto da página troca quando a rolagem para,
+  // para o recálculo de estilo não cair no meio do movimento
+  const cool = y >= M.swTop + M.swRange * .5;
+  if (cool !== lastCool) { lastCool = cool; topbar.classList.toggle('tc', cool); side.classList.toggle('tc', cool); }
+  if (document.body.classList.contains('tc') !== cool) {
+    clearTimeout(themeTimer);
+    themeTimer = setTimeout(() => document.body.classList.toggle('tc', lastCool), 180);
+  }
+
+  // menu do topo
   topbar.classList.toggle('scrolled', y > 20);
-  const menuOpen = $('#nav').classList.contains('open');
-  topbar.classList.toggle('hide', !menuOpen && y > 600 && y > prevScroll + 4);
-  if (y < prevScroll - 4 || y < 600) topbar.classList.remove('hide');
+  if (!nav.classList.contains('open') && y > 600 && y > prevScroll + 4) topbar.classList.add('hide');
+  else if (y < prevScroll - 4 || y < 600) topbar.classList.remove('hide');
   prevScroll = y;
 
-  const mid = y + innerHeight * 0.45;
-  let current = null;
-  sections.forEach(s => { if (s.offsetTop <= mid) current = s; });
-  navLinks.forEach(a => a.classList.toggle('active', !!current && a.getAttribute('href') === '#' + current.id));
+  // link ativo do menu
+  const mid = y + vh * 0.45;
+  let current = '';
+  M.sections.forEach(s => { if (s.top <= mid) current = s.id; });
+  if (current !== lastSection) {
+    lastSection = current;
+    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+  }
 
-  const coolFrom = sw.offsetTop + (sw.offsetHeight - innerHeight) * .5;
-  document.body.classList.toggle('theme-cool', y >= coolFrom);
-
-  if (!reduceMotion) {
-    // a vitrine sobe em velocidades diferentes e o texto se afasta
-    windows.forEach(w => w.style.setProperty('--sy', (-y * +w.dataset.depth / 160).toFixed(1) + 'px'));
-    const k = clamp(y / (innerHeight * 0.8));
+  // topo: a vitrine sobe em velocidades diferentes e o texto se afasta (só enquanto o topo está na tela)
+  if (!reduceMotion && finePointer && (y < vh * 1.2 || !heroDone)) {
+    heroDone = y >= vh * 1.2;
+    const yy = Math.min(y, vh * 1.2);
+    windows.forEach(w => w.style.setProperty('--sy', (-yy * +w.dataset.depth / 160).toFixed(1) + 'px'));
+    const k = clamp(yy / (vh * 0.8));
     heroText.style.opacity = 1 - k * 0.9;
-    heroText.style.transform = `translateY(${k * 40}px)`;
+    heroText.style.transform = `translateY(${(k * 40).toFixed(1)}px)`;
   }
 
   // linha do processo cresce com a rolagem e acende cada etapa
-  const r = stepsEl.getBoundingClientRect();
-  const sp2 = clamp((innerHeight * 0.72 - r.top) / (r.height * 0.6 + innerHeight * 0.15));
-  stepsFill.style.setProperty("--p", sp2);
-  stepItems.forEach((s, i) => {
-    const on = sp2 >= i / (stepItems.length - 1) * 0.98 && r.top < innerHeight * 0.85;
-    s.classList.toggle('lit', on);
-    if (on) s.classList.add('is-in');
-  });
+  const stepsTopNow = M.stepsTop - y;
+  if (stepsTopNow < vh && stepsTopNow > -M.stepsH) {
+    const sp2 = clamp((vh * 0.72 - stepsTopNow) / (M.stepsH * 0.6 + vh * 0.15));
+    stepsFill.style.setProperty('--p', sp2.toFixed(3));
+    stepItems.forEach((s, i) => {
+      const on = sp2 >= i / (stepItems.length - 1) * 0.98 && stepsTopNow < vh * 0.85;
+      s.classList.toggle('lit', on);
+      if (on) s.classList.add('is-in');
+    });
+  }
 
-  const cr = contact.getBoundingClientRect();
-  wppFloat.classList.toggle('hidden', cr.top < innerHeight * 0.6 && cr.bottom > 0);
+  const ct = M.contactTop - y;
+  wppFloat.classList.toggle('hidden', ct < vh * 0.6 && ct + M.contactH > 0);
 }
+function refresh() { buildTicks(); measure(); onScroll(); }
 addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
-addEventListener('resize', () => { buildTicks(); onScroll(); });
-addEventListener('load', () => { buildTicks(); onScroll(); });
-buildTicks();
-onScroll();
+addEventListener('resize', refresh);
+addEventListener('load', refresh);
+refresh();
 side.classList.remove('active');
-if ('ResizeObserver' in window) new ResizeObserver(() => buildTicks()).observe(document.body);
+// quando o conteúdo muda de altura (imagens, fontes, filtros), mede de novo, no máximo uma vez por quadro
+let roPending = false;
+if ('ResizeObserver' in window) new ResizeObserver(() => {
+  if (roPending) return;
+  roPending = true;
+  requestAnimationFrame(() => { roPending = false; refresh(); });
+}).observe(document.body);
+
+// pausa animações que estão fora da tela (economiza bateria e deixa a rolagem leve)
+const pauseIO = new IntersectionObserver(entries => entries.forEach(e => e.target.classList.toggle('offscreen', !e.isIntersecting)), { rootMargin: '100px' });
+$$('.hero, .clients, .plans, .switch').forEach(el => pauseIO.observe(el));
 
 // menu do celular
-const menuBtn = $('#menuToggle'), nav = $('#nav');
+const menuBtn = $('#menuToggle');
 menuBtn.addEventListener('click', () => { const open = nav.classList.toggle('open'); menuBtn.setAttribute('aria-expanded', open); });
 $$('a', nav).forEach(a => a.addEventListener('click', () => { nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); }));
 
