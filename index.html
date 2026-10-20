@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FIXA · Design, social media e sites</title>
+  <meta name="description" content="Estúdio de design e desenvolvimento: identidade visual, social media, vídeo, sites, lojas virtuais e sistemas sob medida.">
+  <meta name="theme-color" content="#08080a">
+  <link rel="icon" href="assets/fixa-colorida.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Ícones (desenhados para a FIXA). Cada traço tem pathLength="1" para a animação de desenhar. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-warm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE14D"/><stop offset=".55" stop-color="#FF7A1A"/><stop offset="1" stop-color="#FF2A12"/></linearGradient>
+    <linearGradient id="g-cool" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6FF0FF"/><stop offset=".55" stop-color="#1A9BFF"/><stop offset="1" stop-color="#2F55E6"/></linearGradient>
+  </defs>
+  <symbol id="i-pen" viewBox="0 0 24 24"><path pathLength="1" d="M12 2.8 18.6 10 12 21.2 5.4 10Z"/><path pathLength="1" d="M12 2.8V10.6"/><circle pathLength="1" cx="12" cy="12.3" r="1.7"/></symbol>
+  <symbol id="i-social" viewBox="0 0 24 24"><rect pathLength="1" x="5" y="2" width="14" height="20" rx="3"/><rect pathLength="1" x="8" y="5.5" width="8" height="7.5" rx="1.2"/><path pathLength="1" d="M8 16.2h8M8 18.9h5"/></symbol>
+  <symbol id="i-video" viewBox="0 0 24 24"><rect pathLength="1" x="2" y="6" width="14" height="12" rx="2.4"/><path pathLength="1" d="m16 10.2 5.5-3v9.6l-5.5-3"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path pathLength="1" d="M4.5 8h15l-1.2 12.5H5.7Z"/><path pathLength="1" d="M9 10.5V6.5a3 3 0 0 1 6 0v4"/></symbol>
+  <symbol id="i-landing" viewBox="0 0 24 24"><rect pathLength="1" x="2.5" y="3.5" width="19" height="17" rx="2.4"/><path pathLength="1" d="M2.5 8.5h19"/><rect pathLength="1" x="5.5" y="11.5" width="6" height="6" rx="1"/><path pathLength="1" d="M14 12.5h4.5M14 15.5h3"/></symbol>
+  <symbol id="i-catalog" viewBox="0 0 24 24"><path pathLength="1" d="M2.5 5h6a3.5 3.5 0 0 1 3.5 3.5V20a2.6 2.6 0 0 0-2.6-2.6H2.5Z"/><path pathLength="1" d="M21.5 5h-6A3.5 3.5 0 0 0 12 8.5V20a2.6 2.6 0 0 1 2.6-2.6h6.9Z"/></symbol>
+  <symbol id="i-building" viewBox="0 0 24 24"><rect pathLength="1" x="4.5" y="2.5" width="15" height="19" rx="1.6"/><path pathLength="1" d="M8.5 6.5h2M13.5 6.5h2M8.5 10.5h2M13.5 10.5h2M8.5 14.5h2M13.5 14.5h2"/><path pathLength="1" d="M10 21.5v-3.5h4v3.5"/></symbol>
+  <symbol id="i-store" viewBox="0 0 24 24"><path pathLength="1" d="M3 9 5 3.5h14L21 9"/><path pathLength="1" d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/><path pathLength="1" d="M4.5 11.5v9h15v-9"/><path pathLength="1" d="M10 20.5v-5h4v5"/></symbol>
+  <symbol id="i-system" viewBox="0 0 24 24"><rect pathLength="1" x="2.5" y="2.5" width="8" height="8" rx="2"/><rect pathLength="1" x="13.5" y="13.5" width="8" height="8" rx="2"/><path pathLength="1" d="M6.5 10.5v3.5a3.5 3.5 0 0 0 3.5 3.5h3.5"/><path pathLength="1" d="M17.5 13.5V6.5h-4"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path pathLength="1" d="M21 14.5a2.5 2.5 0 0 1-2.5 2.5H8l-5 4V5.5A2.5 2.5 0 0 1 5.5 3h13A2.5 2.5 0 0 1 21 5.5Z"/><path pathLength="1" d="M7.5 8.5h9M7.5 12h6"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path pathLength="1" d="M14 2.5H6.5A2.5 2.5 0 0 0 4 5v14a2.5 2.5 0 0 0 2.5 2.5h11A2.5 2.5 0 0 0 20 19V8.5Z"/><path pathLength="1" d="M14 2.5v6h6"/><path pathLength="1" d="M8 13h8M8 16.5h5"/></symbol>
+  <symbol id="i-brush" viewBox="0 0 24 24"><path pathLength="1" d="M20.5 3.5 11 13"/><path pathLength="1" d="M11 13c-2.2-.6-4.5.6-5 3-.4 2-1.2 3.4-3 4 3 .8 7.6.4 9-2.6.6-1.4.4-3-1-4.4Z"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path pathLength="1" d="M21.5 2.5 10.5 13.5"/><path pathLength="1" d="M21.5 2.5 14.5 21.5l-4-8-8-4Z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path pathLength="1" d="m5 12.5 4.2 4.2L19 7"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path pathLength="1" d="M4 12h15M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path pathLength="1" d="M7 17 17 7M9 7h8v8"/></symbol>
+  <symbol id="i-whats" viewBox="0 0 24 24"><path pathLength="1" d="M20.5 11.6a8.6 8.6 0 0 1-12.8 7.5L3 20.5l1.4-4.6a8.6 8.6 0 1 1 16.1-4.3Z"/><path pathLength="1" d="M9 8.6c0 3.2 2.9 6.2 6.2 6.4l1-1.6-2-1-1 .8a4.6 4.6 0 0 1-2.6-2.6l.8-1-1-2Z"/></symbol>
+  <symbol id="i-insta" viewBox="0 0 24 24"><rect pathLength="1" x="3" y="3" width="18" height="18" rx="5"/><circle pathLength="1" cx="12" cy="12" r="4.2"/><circle pathLength="1" cx="17.3" cy="6.7" r=".6"/></symbol>
+  <symbol id="i-sound" viewBox="0 0 24 24"><path pathLength="1" d="M3.5 9.5h3.5l5-4v13l-5-4H3.5Z"/><path pathLength="1" d="M15.5 9a4 4 0 0 1 0 6M18.3 6.3a8 8 0 0 1 0 11.4"/></symbol>
+  <symbol id="i-mute" viewBox="0 0 24 24"><path pathLength="1" d="M3.5 9.5h3.5l5-4v13l-5-4H3.5Z"/><path pathLength="1" d="m16 9.5 5 5M21 9.5l-5 5"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path pathLength="1" d="M7 4.5v15l12.5-7.5Z"/></symbol>
+</svg>
+
+<!-- Abertura animada (só na primeira visita) -->
+<div id="intro" class="intro off" aria-hidden="true">
+  <svg id="introStage" viewBox="-1072 268 573 322" preserveAspectRatio="xMidYMid meet" aria-label="Animação da logo FIXA" role="img"></svg>
+  <div class="intro-gate" id="introGate" hidden>
+    <img src="assets/fixa-colorida.svg" alt="FIXA">
+    <button type="button" class="btn btn-primary" id="introEnter"><svg class="ico"><use href="#i-sound"/></svg>Clique para entrar</button>
+    <button type="button" class="btn-ghost" id="introGateSkip">Entrar sem a abertura</button>
+  </div>
+  <div class="intro-controls">
+    <button type="button" class="btn-ghost" id="introSound" aria-pressed="true"></button>
+    <button type="button" class="btn-ghost" id="introSkip">Pular</button>
+  </div>
+  <audio id="introAudio" src="assets/intro.mp3" preload="auto"></audio>
+</div>
+
+<canvas id="dropsCanvas" aria-hidden="true"></canvas>
+<div class="side-progress" id="sideProgress" aria-hidden="true">
+  <div class="sp-track" id="spTrack"><span class="sp-fill" id="spFill"></span><span class="sp-shine"></span><div class="sp-ticks" id="spTicks"></div><span class="sp-thumb" id="spThumb"><span class="sp-pct" id="spPct">0%</span></span></div>
+</div>
+
+<header class="topbar" id="topbar">
+  <a href="#inicio" class="brand" aria-label="FIXA, voltar ao início">
+    <img src="assets/fixa-colorida.svg" alt="FIXA" class="brand-warm">
+    <img src="assets/fixa-solucoes.svg" alt="" class="brand-cool" aria-hidden="true">
+  </a>
+  <nav class="nav" id="nav">
+    <a href="#estudio">Estúdio</a>
+    <a href="#solucoes">Soluções</a>
+    <a href="#processo">Processo</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#contato" class="btn btn-primary btn-sm magnetic"><svg class="ico"><use href="#i-whats"/></svg>Fale com a gente</a>
+  </nav>
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button>
+</header>
+
+<main>
+
+<!-- INÍCIO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg" aria-hidden="true"><div class="glow g1"></div><div class="glow g2"></div><div class="grid-lines"></div></div>
+  <div class="hero-inner">
+    <div class="hero-text" id="heroText">
+      <p class="pill" data-reveal><span class="dot"></span>Estúdio de design e desenvolvimento</p>
+      <h1 data-split>Sua marca no <em class="grad-warm">clique</em> certo.</h1>
+      <p class="lead" data-reveal style="--i:4">Identidade visual, social media, vídeo e sites que transformam visita em cliente. Tudo num lugar só.</p>
+      <div class="hero-actions" data-reveal style="--i:5">
+        <a href="#projetos" class="btn btn-primary magnetic">Ver projetos<svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost magnetic" data-wpp="Olá! Vim pelo site da FIXA."><svg class="ico"><use href="#i-whats"/></svg>Conversar no WhatsApp</a>
+      </div>
+      <ul class="hero-tags" data-reveal style="--i:6">
+        <li>Identidade visual</li><li>Social media</li><li>Vídeo</li><li>Sites</li><li>Sistemas</li>
+      </ul>
+      <button type="button" class="replay" id="replayIntro"><svg class="ico"><use href="#i-play"/></svg>Ver a abertura</button>
+    </div>
+
+    <div class="showcase" id="showcase" aria-label="Alguns sites feitos pela FIXA">
+      <a href="#projetos" class="window w1" data-depth="18">
+        <div class="win-bar"><i></i><i></i><i></i><span>laurabeauty</span></div>
+        <div class="win-view"><img src="assets/portfolio/laura-beauty-full.jpg" alt="Site Studio Laura Beauty" style="--dur:22s"></div>
+      </a>
+      <a href="#projetos" class="window w2" data-depth="30">
+        <div class="win-bar"><i></i><i></i><i></i><span>laboratoriomontividiu.com.br</span></div>
+        <div class="win-view"><img src="assets/portfolio/laboratorio-montividiu-full.jpg" alt="Site Laboratório Montividiu" style="--dur:26s"></div>
+      </a>
+      <a href="#projetos" class="window w3" data-depth="46">
+        <div class="win-bar"><i></i><i></i><i></i><span>garage-hf</span></div>
+        <div class="win-view"><img src="assets/portfolio/garage-hf-full.jpg" alt="Site Garage HF Estética" style="--dur:18s"></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTES -->
+<section class="clients" aria-label="Clientes">
+  <p class="clients-title">Marcas que já passaram pela FIXA</p>
+  <div class="marquee"><div class="marquee-track">
+    <span>Studio Laura Beauty</span><span>Garage HF Estética</span><span>Laboratório Montividiu</span><span>Autobass</span><span>RF Colheitas</span><span>Racing Motos</span>
+    <span>Studio Laura Beauty</span><span>Garage HF Estética</span><span>Laboratório Montividiu</span><span>Autobass</span><span>RF Colheitas</span><span>Racing Motos</span>
+  </div></div>
+</section>
+
+<!-- DUAS FRENTES -->
+<section class="fronts">
+  <a href="#estudio" class="front warm spot" data-reveal>
+    <span class="front-num">01</span>
+    <p class="front-label">Estúdio</p>
+    <h2>Design que faz sua marca ser lembrada.</h2>
+    <ul class="tags"><li>Identidade visual</li><li>Social media</li><li>Reels e vinhetas</li><li>Marketplace</li></ul>
+    <span class="front-link">Conhecer o Estúdio<svg class="ico"><use href="#i-arrow"/></svg></span>
+  </a>
+  <a href="#solucoes" class="front cool spot" data-reveal style="--i:1">
+    <span class="front-num">02</span>
+    <p class="front-label">Soluções</p>
+    <h2>Sites e sistemas que trabalham por você.</h2>
+    <ul class="tags"><li>Landing pages</li><li>Catálogos</li><li>Lojas virtuais</li><li>Sistemas sob medida</li></ul>
+    <span class="front-link">Conhecer as Soluções<svg class="ico"><use href="#i-arrow"/></svg></span>
+  </a>
+</section>
+
+<!-- ESTÚDIO -->
+<section class="area area-warm" id="estudio">
+  <header class="area-head">
+    <div>
+      <p class="eyebrow" data-reveal>01 · Estúdio</p>
+      <h2 data-split>Imagem que <em class="grad-warm">vende</em>.</h2>
+    </div>
+    <p class="lead" data-reveal>Conteúdo pensado para o seu cliente parar de rolar a tela e chamar você. Estratégia, design e vídeo com a mesma identidade.</p>
+  </header>
+
+  <div class="services">
+    <article class="card service spot" data-reveal>
+      <svg class="ico ico-lg draw"><use href="#i-pen"/></svg>
+      <h3>Identidade visual</h3>
+      <p>Logo, cores, tipografia e aplicações para a sua marca ter cara própria em tudo.</p>
+    </article>
+    <article class="card service spot" data-reveal style="--i:1">
+      <svg class="ico ico-lg draw"><use href="#i-social"/></svg>
+      <h3>Social media</h3>
+      <p>Planejamento, artes, carrosséis e legendas com constância, todo mês.</p>
+    </article>
+    <article class="card service spot" data-reveal style="--i:2">
+      <svg class="ico ico-lg draw"><use href="#i-video"/></svg>
+      <h3>Reels e vídeos</h3>
+      <p>Captação, edição e vinhetas animadas, como a abertura deste site.</p>
+    </article>
+    <article class="card service spot" data-reveal style="--i:3">
+      <svg class="ico ico-lg draw"><use href="#i-bag"/></svg>
+      <h3>Anúncios de marketplace</h3>
+      <p>Imagens de produto que vendem no Mercado Livre e na Shopee.</p>
+    </article>
+  </div>
+
+  <div class="block-head">
+    <h3 data-split>Planos de social media</h3>
+    <p data-reveal>Valores sob consulta. Escolha o plano e a gente monta a proposta.</p>
+  </div>
+  <div class="plans">
+    <article class="card plan spot" data-reveal>
+      <h4>Start</h4>
+      <p class="plan-desc">Para começar a aparecer com constância.</p>
+      <ul class="checks">
+        <li><svg class="ico"><use href="#i-check"/></svg>8 posts no feed por mês</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>Planejamento e calendário</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>Legendas e hashtags</li>
+      </ul>
+      <a class="btn btn-outline magnetic" data-wpp="Olá! Tenho interesse no plano Start de social media da FIXA.">Quero o Start</a>
+    </article>
+    <article class="card plan featured spot" data-reveal style="--i:1">
+      <span class="badge">Mais escolhido</span>
+      <h4>Profissional</h4>
+      <p class="plan-desc">Feed, vídeo e stories trabalhando juntos.</p>
+      <ul class="checks">
+        <li><svg class="ico"><use href="#i-check"/></svg>8 posts no feed por mês</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>4 reels editados</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>1 captação no local por mês</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>8 artes de stories</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>Planejamento, legendas e relatório</li>
+      </ul>
+      <a class="btn btn-primary magnetic" data-wpp="Olá! Tenho interesse no plano Profissional de social media da FIXA.">Quero o Profissional</a>
+    </article>
+    <article class="card plan spot" data-reveal style="--i:2">
+      <h4>Completo</h4>
+      <p class="plan-desc">Presença forte, com reunião todo mês.</p>
+      <ul class="checks">
+        <li><svg class="ico"><use href="#i-check"/></svg>12 posts no feed por mês</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>8 reels editados</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>2 captações no local por mês</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>16 artes de stories</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>Capas dos destaques</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>Relatório e reunião mensal</li>
+      </ul>
+      <a class="btn btn-outline magnetic" data-wpp="Olá! Tenho interesse no plano Completo de social media da FIXA.">Quero o Completo</a>
+    </article>
+  </div>
+  <div class="extras" data-reveal>
+    <span>Também à parte</span>
+    <ul class="tags"><li>Gestão de tráfego pago</li><li>Reel extra</li><li>Post avulso</li><li>Vinheta animada de logo</li><li>Identidade visual</li></ul>
+  </div>
+</section>
+
+<!-- TRANSIÇÃO ESTÚDIO → SOLUÇÕES (controlada pela rolagem) -->
+<section class="switch" id="troca" aria-label="Do Estúdio às Soluções">
+  <div class="switch-sticky">
+    <div class="switch-orb warm"></div><div class="switch-orb cool"></div>
+    <div class="switch-grid" aria-hidden="true"></div>
+    <div class="switch-line" aria-hidden="true"><span></span></div>
+    <div class="switch-stage">
+      <div class="switch-labels" aria-hidden="true"><span class="lab warm">01 · Estúdio</span><span class="lab cool">02 · Soluções</span></div>
+      <div class="switch-cursor" aria-hidden="true"><img src="assets/cursor-warm.svg" alt="" class="cw"><img src="assets/cursor-cool.svg" alt="" class="cc"></div>
+      <div class="switch-texts">
+        <p class="st st-a"><span>Do design que chama <em class="grad-warm">atenção</em></span></p>
+        <p class="st st-b"><span>à tecnologia que traz <em class="grad-cool">cliente</em>.</span></p>
+      </div>
+      <p class="switch-hint"><span></span>continue rolando</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUÇÕES -->
+<section class="area area-cool" id="solucoes">
+  <header class="area-head">
+    <div>
+      <p class="eyebrow" data-reveal>02 · Soluções</p>
+      <h2 data-split>Seu negócio <em class="grad-cool">online</em>, funcionando.</h2>
+    </div>
+    <p class="lead" data-reveal>Sites rápidos, bonitos no celular e com o caminho certo até o seu WhatsApp. E, quando precisa, um sistema feito para o seu jeito de trabalhar.</p>
+  </header>
+
+  <div class="services five">
+    <article class="card service spot" data-reveal>
+      <svg class="ico ico-lg draw"><use href="#i-landing"/></svg>
+      <h3>Landing page</h3>
+      <p>Uma página que apresenta o seu serviço e leva direto ao contato.</p>
+    </article>
+    <article class="card service spot" data-reveal style="--i:1">
+      <svg class="ico ico-lg draw"><use href="#i-catalog"/></svg>
+      <h3>Catálogo</h3>
+      <p>Seus produtos com foto e pedido direto pelo WhatsApp.</p>
+    </article>
+    <article class="card service spot" data-reveal style="--i:2">
+      <svg class="ico ico-lg draw"><use href="#i-building"/></svg>
+      <h3>Site institucional</h3>
+      <p>Sua empresa no Google: sobre, serviços, galeria e localização.</p>
+    </article>
+    <article class="card service spot" data-reveal style="--i:3">
+      <svg class="ico ico-lg draw"><use href="#i-store"/></svg>
+      <h3>Loja virtual</h3>
+      <p>Venda online com pagamento e frete configurados.</p>
+    </article>
+    <article class="card service spot" data-reveal style="--i:4">
+      <svg class="ico ico-lg draw"><use href="#i-system"/></svg>
+      <h3>Sistemas sob medida</h3>
+      <p>Agendamento, cadastro de clientes, orçamentos e painéis para o negócio rodar sozinho.</p>
+    </article>
+  </div>
+
+  <div class="block-head">
+    <h3 data-split>Depois de pronto, a gente cuida</h3>
+    <p data-reveal>Manutenção mensal para o site nunca ficar parado.</p>
+  </div>
+  <div class="plans two">
+    <article class="card plan spot" data-reveal>
+      <h4>Manutenção Básica</h4>
+      <p class="plan-desc">Seu site sempre no ar e seguro.</p>
+      <ul class="checks">
+        <li><svg class="ico"><use href="#i-check"/></svg>Hospedagem e site no ar</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>Backup e segurança</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>Domínio sempre no seu nome</li>
+      </ul>
+      <a class="btn btn-outline magnetic" data-wpp="Olá! Quero saber sobre a Manutenção Básica de site da FIXA.">Quero saber mais</a>
+    </article>
+    <article class="card plan featured spot" data-reveal style="--i:1">
+      <span class="badge">Recomendado</span>
+      <h4>Manutenção Ativa</h4>
+      <p class="plan-desc">Site sempre atualizado, sem dor de cabeça.</p>
+      <ul class="checks">
+        <li><svg class="ico"><use href="#i-check"/></svg>Tudo da Básica</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>Até 2 alterações por mês</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>Suporte pelo WhatsApp</li>
+      </ul>
+      <a class="btn btn-primary magnetic" data-wpp="Olá! Quero saber sobre a Manutenção Ativa de site da FIXA.">Quero saber mais</a>
+    </article>
+  </div>
+  <p class="note" data-reveal>Quem fecha social media com a FIXA ganha desconto no site.</p>
+</section>
+
+<!-- PROCESSO -->
+<section class="process" id="processo">
+  <header class="area-head center">
+    <p class="eyebrow" data-reveal>Processo</p>
+    <h2 data-split>Do primeiro <em class="grad-mix">oi</em> ao resultado.</h2>
+  </header>
+  <ol class="steps" id="steps">
+    <li class="step"><span class="step-ico"><svg class="ico ico-lg draw"><use href="#i-chat"/></svg></span><span class="step-num">01</span><h3>Conversa</h3><p>Você conta o que precisa pelo WhatsApp.</p></li>
+    <li class="step"><span class="step-ico"><svg class="ico ico-lg draw"><use href="#i-doc"/></svg></span><span class="step-num">02</span><h3>Proposta</h3><p>Montamos o plano ou o orçamento sob medida.</p></li>
+    <li class="step"><span class="step-ico"><svg class="ico ico-lg draw"><use href="#i-brush"/></svg></span><span class="step-num">03</span><h3>Criação</h3><p>Você acompanha e aprova cada etapa.</p></li>
+    <li class="step"><span class="step-ico"><svg class="ico ico-lg draw"><use href="#i-send"/></svg></span><span class="step-num">04</span><h3>No ar</h3><p>Entregamos e seguimos acompanhando.</p></li>
+    <li class="steps-line" aria-hidden="true"><span id="stepsFill"></span></li>
+  </ol>
+</section>
+
+<!-- PROJETOS -->
+<section class="projects" id="projetos">
+  <header class="area-head">
+    <div>
+      <p class="eyebrow" data-reveal>Projetos</p>
+      <h2 data-split>Sites que já estão <em class="grad-cool">no ar</em>.</h2>
+    </div>
+    <p class="lead" data-reveal>Passe o mouse sobre um projeto para ver a página rolar. Clique para abrir o site.</p>
+  </header>
+  <div class="filters" id="filters" role="tablist" aria-label="Filtrar projetos"></div>
+  <div class="gallery" id="gallery"></div>
+</section>
+
+<!-- PERGUNTAS -->
+<section class="faq">
+  <header class="area-head center">
+    <p class="eyebrow" data-reveal>Dúvidas</p>
+    <h2 data-split>Perguntas frequentes</h2>
+  </header>
+  <div class="faq-list">
+    <details data-reveal><summary>Quanto custa?</summary><div class="faq-body"><p>Cada negócio tem uma necessidade, então o plano ou orçamento é montado sob medida. Chame no WhatsApp que a gente responde rápido.</p></div></details>
+    <details data-reveal><summary>Tem contrato?</summary><div class="faq-body"><p>Sim. Nos planos de social media o contrato mínimo é de 3 meses, o tempo para o conteúdo começar a dar resultado.</p></div></details>
+    <details data-reveal><summary>O domínio do site fica no meu nome?</summary><div class="faq-body"><p>Sempre. O domínio é seu, e isso dá segurança para você.</p></div></details>
+    <details data-reveal><summary>Em quanto tempo fica pronto?</summary><div class="faq-body"><p>O prazo é combinado na proposta, de acordo com o projeto. Landing pages costumam ser as mais rápidas.</p></div></details>
+    <details data-reveal><summary>Vocês atendem fora da cidade?</summary><div class="faq-body"><p>Sim. Fazemos tudo online, e a captação de vídeo no local é combinada à parte.</p></div></details>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="contact" id="contato">
+  <div class="contact-card" data-reveal>
+    <div class="contact-text">
+      <p class="eyebrow">Contato</p>
+      <h2 data-split>Vamos tirar sua ideia do <em class="grad-mix">papel</em>?</h2>
+      <p class="lead">Conte o que você precisa. A resposta vem pelo WhatsApp.</p>
+      <ul class="contact-links">
+        <li><a id="lnkWhats" target="_blank" rel="noopener" class="magnetic"><svg class="ico"><use href="#i-whats"/></svg>WhatsApp</a></li>
+        <li><a id="lnkInsta" target="_blank" rel="noopener" class="magnetic"><svg class="ico"><use href="#i-insta"/></svg>Instagram</a></li>
+        <li><a id="lnkMail" class="magnetic"><svg class="ico"><use href="#i-chat"/></svg>E-mail</a></li>
+      </ul>
+    </div>
+    <form class="contact-form" id="contactForm" novalidate>
+      <div class="field"><input id="fNome" name="nome" required autocomplete="name" placeholder=" "><label for="fNome">Seu nome</label></div>
+      <div class="field"><select id="fInteresse" name="interesse">
+        <option>Social media</option>
+        <option>Identidade visual ou vídeo</option>
+        <option>Site ou loja virtual</option>
+        <option>Sistema sob medida</option>
+        <option>Ainda não sei, quero conversar</option>
+      </select><label for="fInteresse" class="fixed">Tenho interesse em</label></div>
+      <div class="field"><textarea id="fMsg" name="mensagem" rows="3" placeholder=" "></textarea><label for="fMsg">Conte um pouco sobre o seu negócio</label></div>
+      <button class="btn btn-primary magnetic" type="submit"><svg class="ico"><use href="#i-whats"/></svg>Enviar pelo WhatsApp</button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <img src="assets/fixa-colorida.svg" alt="FIXA" class="footer-logo">
+    <nav class="footer-nav"><a href="#estudio">Estúdio</a><a href="#solucoes">Soluções</a><a href="#processo">Processo</a><a href="#projetos">Projetos</a><a href="#contato">Contato</a></nav>
+    <div class="footer-social">
+      <a id="ftWhats" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ico"><use href="#i-whats"/></svg></a>
+      <a id="ftInsta" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ico"><use href="#i-insta"/></svg></a>
+    </div>
+  </div>
+  <p class="footer-copy">© <span id="year"></span> FIXA · Estúdio e Soluções</p>
+</footer>
+
+<a class="wpp-float" id="wppFloat" target="_blank" rel="noopener" aria-label="Conversar no WhatsApp"><svg class="ico"><use href="#i-whats"/></svg></a>
+
+<script src="js/portfolio.js"></script>
+<script src="js/intro.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
