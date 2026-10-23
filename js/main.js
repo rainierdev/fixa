@@ -26,6 +26,8 @@ const hello = wppLink('Olá! Vim pelo site da FIXA.');
 if (FIXA.email) $('#lnkMail').href = `mailto:${FIXA.email}`;
 else $('#lnkMail').parentElement.remove();
 $$('[data-wpp]').forEach(a => { a.href = wppLink(a.dataset.wpp); a.target = '_blank'; a.rel = 'noopener'; });
+// O painel roda só no computador (painel/server.js): a aba aparece apenas quando o site é aberto por ele.
+if (['localhost', '127.0.0.1'].includes(location.hostname)) $('#lnkPainel').hidden = false;
 
 // ===================== abertura animada =====================
 // O navegador só deixa tocar som depois de um clique. Por isso: tentamos tocar com som;

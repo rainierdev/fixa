@@ -3,6 +3,13 @@
 // tipo: Landing page | Catálogo | Institucional | Loja virtual | Agendamento
 window.PORTFOLIO = [
   {
+    nome: 'Gold Star Consultoria',
+    tipo: 'Landing page',
+    descricao: 'Consórcio e patrimônio com simulador de parcelas, venda de cota contemplada e mapa do patrimônio de 10 anos.',
+    imagem: 'assets/portfolio/goldstar.jpg',
+    link: 'https://rainierdev.github.io/goldstar/',
+  },
+  {
     nome: 'Studio Laura Beauty',
     tipo: 'Agendamento',
     descricao: 'Estúdio de beleza em Montividiu-GO, com agendamento online e sinal pago na hora.',

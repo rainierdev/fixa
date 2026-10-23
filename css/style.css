@@ -332,7 +332,7 @@ section { position: relative; padding: clamp(84px, 11vw, 150px) clamp(18px, 5vw,
 .filters button { padding: 9px 16px; border-radius: 999px; border: 1px solid var(--line-2); background: transparent; color: var(--muted); font: 500 .9rem var(--font-body); transition: all .35s var(--ease-out); }
 .filters button:hover { color: var(--text); border-color: rgba(255, 255, 255, .3); }
 .filters button[aria-selected="true"] { background: var(--text); color: #0b0b0d; border-color: var(--text); }
-.gallery { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.gallery { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
 .work { display: block; text-decoration: none; color: var(--text); overflow: hidden; transition: opacity .5s var(--ease-out), transform .5s var(--ease-out), border-color .4s; }
 .work .frame { margin: 10px 10px 0; border-radius: 12px 12px 0 0; overflow: hidden; border: 1px solid var(--line); border-bottom: 0; background: #1a1a20; }
 .work .frame .win-bar { height: 24px; }
